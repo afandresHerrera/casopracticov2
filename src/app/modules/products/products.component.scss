@@ -1,0 +1,27 @@
+.main-content {
+  background-color: red;
+  margin: 85px auto 0 auto;
+  max-width: 1186px;
+  width: 100%;
+}
+
+.top-table {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container {
+  background-color: #fff;
+  padding: 1.5rem;
+  margin-top: 1rem;
+
+  table {
+    background-color: #f9fafc;
+    width: 100%;
+
+    th, tr {
+      text-align: left;
+    }
+  }
+}
