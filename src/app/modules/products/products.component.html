@@ -19,23 +19,34 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let product of products">
+                <tr *ngFor="let product of products; let i = index">
                     <td>
                         <div class="product-logo">
-                            <img [src]="product.logo" [alt]="product.name" noImage/>
+                            <img [src]="product.logo" [alt]="product.name" noImage />
                         </div>
                     </td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.description }}</td>
-                    <td>{{ product.date_release }}</td>
-                    <td>{{ product.date_revision }}</td>
-                    <td>
-                        <button class="circle-button">
+                    <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
+                    <td class="context-menu-container">
+                        <button class="circle-button" (click)="showContext(i)">
                             <img src="assets/images/three_dots_vertical.svg">
                         </button>
+                        <div class="context-menu" *ngIf="product.showcontext" (mouseout)="test()">
+                            <ul>
+                                <li (click)="editProduct(product)">Editar</li>
+                                <li (click)="deleteProduct(product)">Eliminar</li>
+                            </ul>
+                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <footer class="table-info">
+            <p class="resuts" *ngIf="products.length > 0">
+                {{ products.length }} {{ products.length > 1 ? 'Resultados' : 'Resultado' }}
+            </p>
+        </footer>
     </div>
 </main>
