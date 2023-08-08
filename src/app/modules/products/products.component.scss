@@ -1,5 +1,5 @@
 .main-content {
-  background-color: red;
+  // background-color: red;
   margin: 85px auto 0 auto;
   max-width: 1186px;
   width: 100%;
@@ -11,17 +11,70 @@
   align-items: center;
 }
 
+
+input {
+  border: 2px solid #c8c8cb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #757578;
+}
+
+.custom-btn {
+  background-color: #f9de4b;
+  border: 0;
+  border-radius: 4px;
+  color: #152559;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 20px 22px;
+  transition: all ease-in-out 300ms;
+
+  &:hover {
+    background-color: #edcc1b;
+    // color: #fff;
+  }
+}
+
 .table-container {
   background-color: #fff;
-  padding: 1.5rem;
+  padding: 40px;
   margin-top: 1rem;
 
   table {
-    background-color: #f9fafc;
+    border-collapse: collapse;
     width: 100%;
 
-    th, tr {
+    th {
+      background-color: #f9fafc;
+      border: 0;
+      color: #2c2c30;
+      font-weight: 700;
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: 3rem;
+    }
+
+    th,
+    td {
+      border-bottom: 2px solid #ebedf3;
       text-align: left;
+      padding: 1.5rem 0;
+      font-size: 0.75rem;
+    }
+
+    td {
+      color: #4a4a4e;
+
+      .product-logo {
+        background-color: #c0c7d9;
+        border-radius: 50%;
+        height: 2.375rem;
+        width: 2.375rem;
+      }
     }
   }
 }
