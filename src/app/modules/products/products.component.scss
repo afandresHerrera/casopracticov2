@@ -1,42 +1,8 @@
-.main-content {
-  // background-color: red;
-  margin: 85px auto 0 auto;
-  max-width: 1186px;
-  width: 100%;
-}
-
 .top-table {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-
-input {
-  border: 2px solid #c8c8cb;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-size: 12px;
-  color: #757578;
-}
-
-.custom-btn {
-  background-color: #f9de4b;
-  border: 0;
-  border-radius: 4px;
-  color: #152559;
-  cursor: pointer;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 20px 22px;
-  transition: all ease-in-out 300ms;
-
-  &:hover {
-    background-color: #edcc1b;
-    // color: #fff;
-  }
-}
-
 .table-container {
   background-color: #fff;
   padding: 40px;
@@ -70,10 +36,21 @@ input {
       color: #4a4a4e;
 
       .product-logo {
-        background-color: #c0c7d9;
         border-radius: 50%;
         height: 2.375rem;
         width: 2.375rem;
+
+        &.empty-logo {
+          background-color: #c0c7d9;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }

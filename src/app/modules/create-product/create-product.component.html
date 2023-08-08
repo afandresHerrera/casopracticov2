@@ -1,0 +1,60 @@
+<main class="main-content">
+    <div class="form-container">
+        <h1 class="form-title">
+            Formulario de Registro
+        </h1>
+        <hr>
+        <form [formGroup]="productoForm">
+            <div class="control-form">
+                <label for="nombre_usuario">ID: </label>
+                <input type="text" formControlName="id">
+                <div class="error-div">
+                    Name is required.
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="clave_usuario">Nombre: </label>
+                <input type="text" formControlName="name">
+                <div class="error-div">
+                    Name is required.
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="clave_usuario">Descripción: </label>
+                <input type="text" formControlName="description">
+                <div class="error-div">
+                    Name is required.
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="clave_usuario">Logo: </label>
+                <input type="text" formControlName="logo">
+                <div class="error-div">
+                    Name is required.
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="clave_usuario">Fecha Liberación: </label>
+                <input type="text" formControlName="date_release">
+                <div class="error-div">
+                    Name is required.
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="clave_usuario">Fecha Revisión: </label>
+                <input type="text" formControlName="date_revision" />
+                <div class="error-div">
+                    Name is required.
+                </div>
+            </div>
+            <div class="control-form align-items-center">
+                <input class="custom-btn secondary" type="reset" value="Reiniciar">
+            </div>
+            <div class="control-form align-items-center">
+                <input class="custom-btn primary" type="submit" value="Enviar datos" [disabled]="productoForm.invalid">
+            </div>
+
+            {{ productoForm.invalid }}
+        </form>
+    </div>
+</main>

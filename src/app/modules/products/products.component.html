@@ -1,93 +1,41 @@
 <main class="main-content">
     <div class="top-table">
         <input type="text" placeholder="Search...">
-        <button class="custom-btn">
+        <b class="custom-btn primary" routerLink="/create-product">
             Agregar
-        </button>
+        </b>
     </div>
 
     <div class="table-container">
         <table>
-            <tr>
-                <th>Logo</th>
-                <th>Nombre del producto</th>
-                <th>Descripción</th>
-                <th>Fecha de liberación</th>
-                <th>Fecha de reestructuración</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-logo"></div>
-                </td>
-                <td>Nombre del producto</td>
-                <td>Descripción</td>
-                <td>01/01/2000</td>
-                <td>01/01/2001</td>                
-                <td>
-                    <img src="../../../assets/images/three_dots_vertical.svg">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-logo"></div>
-                </td>
-                <td>Nombre del producto</td>
-                <td>Descripción</td>
-                <td>01/01/2000</td>
-                <td>01/01/2001</td>                
-                <td>
-                    <img src="../../../assets/images/three_dots_vertical.svg">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-logo"></div>
-                </td>
-                <td>Nombre del producto</td>
-                <td>Descripción</td>
-                <td>01/01/2000</td>
-                <td>01/01/2001</td>                
-                <td>
-                    <img src="../../../assets/images/three_dots_vertical.svg">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-logo"></div>
-                </td>
-                <td>Nombre del producto</td>
-                <td>Descripción</td>
-                <td>01/01/2000</td>
-                <td>01/01/2001</td>                
-                <td>
-                    <img src="../../../assets/images/three_dots_vertical.svg">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-logo"></div>
-                </td>
-                <td>Nombre del producto</td>
-                <td>Descripción</td>
-                <td>01/01/2000</td>
-                <td>01/01/2001</td>                
-                <td>
-                    <img src="../../../assets/images/three_dots_vertical.svg">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="product-logo"></div>
-                </td>
-                <td>Nombre del producto</td>
-                <td>Descripción</td>
-                <td>01/01/2000</td>
-                <td>01/01/2001</td>                
-                <td>
-                    <img src="../../../assets/images/three_dots_vertical.svg">
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Nombre del producto</th>
+                    <th>Descripción</th>
+                    <th>Fecha de liberación</th>
+                    <th>Fecha de reestructuración</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td>
+                        <div class="product-logo">
+                            <img [src]="product.logo" [alt]="product.name" noImage/>
+                        </div>
+                    </td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.date_release }}</td>
+                    <td>{{ product.date_revision }}</td>
+                    <td>
+                        <button class="circle-button">
+                            <img src="assets/images/three_dots_vertical.svg">
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </main>
