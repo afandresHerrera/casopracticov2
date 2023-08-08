@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
+import { Spinkit } from 'ng-http-loader';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+  <router-outlet></router-outlet>
+
+  <!-- Spinner de procesamiento -->
+  <ng-http-loader [backgroundColor]="'#0370d1'" [spinner]="spinkit.skThreeBounce"></ng-http-loader>
+  `
 })
 export class AppComponent {
-  title = 'casopracticov2';
+  public spinkit = Spinkit;
+
 }

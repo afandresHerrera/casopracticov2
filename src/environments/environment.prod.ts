@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  urlApi: 'http://desarrollo-staffing.pichincha.com/ipf-msa-productosfinancieros/'
 };
