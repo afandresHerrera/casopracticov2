@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SpinnerVisibilityService } from 'ng-http-loader';
-import { Product } from 'src/app/models/product';
-import { ProductService } from 'src/app/services/product.service';
+import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 interface ShowProduct extends Product {
   showcontext?: boolean;

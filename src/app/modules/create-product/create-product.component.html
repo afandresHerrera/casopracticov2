@@ -26,11 +26,11 @@
                 <input type="text" formControlName="name" name="name">
                 <div class="error-div"
                     *ngIf="productoForm.get('name')?.touched && productoForm.get('name')?.hasError('required')">
-                    Este campo debe tener entre 3 y 10 caracteres
+                    Este campo es requerido.
                 </div>
                 <div class="error-div"
                     *ngIf="productoForm.get('name')?.touched && productoForm.get('name')?.hasError('minlength') || productoForm.get('name')?.touched &&  productoForm.get('name')?.hasError('maxlength')">
-                    Este campo debe tener entre 10 y 200 caracteres
+                    Este campo debe tener entre 3 y 10 caracteres
                 </div>
             </div>
             <div class="control-form">
@@ -38,7 +38,7 @@
                 <input type="text" formControlName="description" name="description">
                 <div class="error-div"
                     *ngIf="productoForm.get('description')?.touched && productoForm.get('description')?.hasError('required')">
-                    Descipción no válida.
+                    Este campo es requerido.
                 </div>
                 <div class="error-div"
                     *ngIf="productoForm.get('description')?.touched && productoForm.get('description')?.hasError('minlength') || productoForm.get('description')?.touched && productoForm.get('description')?.hasError('maxlength')">
@@ -50,7 +50,7 @@
                 <input type="text" formControlName="logo" name="logo">
                 <div class="error-div"
                     *ngIf="productoForm.get('logo')?.touched && productoForm.get('logo')?.hasError('required')">
-                    Logo no válido.
+                    Este campo es requerido.
                 </div>
             </div>
             <div class="control-form">
@@ -59,7 +59,7 @@
                     [min]="minDate">
                 <div class="error-div"
                     *ngIf="productoForm.get('date_release')?.touched && productoForm.get('date_release')?.hasError('required')">
-                    Fecha no válida.
+                    Este campo es requerido.
                 </div>
             </div>
             <div class="control-form">
