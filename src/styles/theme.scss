@@ -5,6 +5,51 @@
   width: 100%;
 }
 
+hr {
+  background-color: #b9b9ba;
+  height: 2px;
+  margin: 2px 0;
+}
+
+// forms
+form {
+  padding: 2.25rem;
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+
+    &:has(~ :is([disabled], [readonly])) {
+      color: #c0c0c2;
+    }
+  }
+}
+
+.control-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  &.align-items-center {
+    align-items: center;
+  }
+
+  .error-div {
+    color: #e04444;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+input[type="date"],
 input[type="text"],
 input[type="password"] {
   border: 2px solid #c8c8cb;
@@ -12,6 +57,12 @@ input[type="password"] {
   padding: 8px 12px;
   font-size: 12px;
   color: #757578;
+
+  &:disabled {
+    background-color: #f6f6f6;
+    border: 2px solid #e8e8e9;
+    color: #b7b7b9;
+  }
 }
 
 .custom-btn {
@@ -27,7 +78,7 @@ input[type="password"] {
 
   &.primary {
     background-color: #f9de4b;
-    
+
     &:hover {
       background-color: #edcc1b;
     }

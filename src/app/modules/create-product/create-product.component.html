@@ -6,52 +6,49 @@
         <hr>
         <form [formGroup]="productoForm">
             <div class="control-form">
-                <label for="nombre_usuario">ID: </label>
-                <input type="text" formControlName="id">
+                <label for="id">ID: </label>
+                <input type="text" formControlName="id" name="id">
                 <div class="error-div">
                     Name is required.
                 </div>
             </div>
             <div class="control-form">
-                <label for="clave_usuario">Nombre: </label>
-                <input type="text" formControlName="name">
+                <label for="name">Nombre: </label>
+                <input type="text" formControlName="name" name="name">
                 <div class="error-div">
                     Name is required.
                 </div>
             </div>
             <div class="control-form">
-                <label for="clave_usuario">Descripción: </label>
-                <input type="text" formControlName="description">
+                <label for="description">Descripción: </label>
+                <input type="text" formControlName="description" name="description">
                 <div class="error-div">
                     Name is required.
                 </div>
             </div>
             <div class="control-form">
-                <label for="clave_usuario">Logo: </label>
-                <input type="text" formControlName="logo">
+                <label for="logo">Logo: </label>
+                <input type="text" formControlName="logo" name="logo">
                 <div class="error-div">
                     Name is required.
                 </div>
             </div>
             <div class="control-form">
-                <label for="clave_usuario">Fecha Liberación: </label>
-                <input type="text" formControlName="date_release">
+                <label for="date_release">Fecha Liberación: </label>
+                <input type="date" formControlName="date_release" name="date_release" (change)="setDate()">
                 <div class="error-div">
                     Name is required.
                 </div>
             </div>
             <div class="control-form">
-                <label for="clave_usuario">Fecha Revisión: </label>
-                <input type="text" formControlName="date_revision" />
-                <div class="error-div">
-                    Name is required.
-                </div>
+                <label for="date_revision">Fecha Revisión: </label>
+                <input type="date" formControlName="date_revision" name="date_revision">
             </div>
             <div class="control-form align-items-center">
                 <input class="custom-btn secondary" type="reset" value="Reiniciar">
             </div>
             <div class="control-form align-items-center">
-                <input class="custom-btn primary" type="submit" value="Enviar datos" [disabled]="productoForm.invalid">
+                <input class="custom-btn primary" type="submit" value="Enviar datos" (click)="sendForm()">
             </div>
 
             {{ productoForm.invalid }}
