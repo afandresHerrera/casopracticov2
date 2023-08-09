@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SpinnerVisibilityService } from 'ng-http-loader';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
@@ -18,10 +19,12 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productsService: ProductService,
+    private router: Router,
     private spinner: SpinnerVisibilityService
   ) { }
 
   ngOnInit(): void {
+    this.productsService.resetEditProduct();
     this.getProducts();
   }
 
@@ -62,7 +65,9 @@ export class ProductsComponent implements OnInit {
     if (!!this.openContext || this.openContext === 0) {
       this.hideContext(this.openContext);
     }
-    console.log('se editaera el elemento :' + JSON.stringify(element));
+
+    this.productsService.setProduct = element;
+    this.router.navigateByUrl('/create-product');
   }
 
   deleteProduct(element: ShowProduct) {

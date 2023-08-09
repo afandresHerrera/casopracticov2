@@ -33,19 +33,20 @@ form {
 }
 
 .control-form {
+  align-items: stretch;
   display: flex;
   flex-direction: column;
+  height: 74px;
   justify-content: flex-start;
-  align-items: stretch;
 
   &.align-items-center {
     align-items: center;
   }
 
   .error-div {
-    color: #e04444;
+    color: #d50707;
     margin-top: 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.5rem;
   }
 }
 
@@ -63,6 +64,10 @@ input[type="password"] {
     border: 2px solid #e8e8e9;
     color: #b7b7b9;
   }
+
+  &.ng-invalid.ng-touched {
+    border: 2px solid #d50707;
+  }
 }
 
 .custom-btn {
@@ -79,8 +84,14 @@ input[type="password"] {
   &.primary {
     background-color: #f9de4b;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background-color: #edcc1b;
+    }
+
+    &:disabled {
+      background-color: #fff199;
+      color: #a3abbb;
+      cursor: initial;
     }
   }
 
