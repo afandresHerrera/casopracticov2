@@ -37,6 +37,12 @@ export class ProductService {
     return this.http.put<Product[]>(environment.apiUrl + 'bp/products', product);
   }
 
+  deleteProduct(id: string): Observable<boolean | any> {
+    const options = id ? { params: new HttpParams().set('id', id) } : {};
+
+    return this.http.delete<any>(environment.apiUrl + 'bp/products', options);
+  }
+
   verifyId(id: string): Observable<boolean | any> {
     const options = id ? { params: new HttpParams().set('id', id) } : {};
 

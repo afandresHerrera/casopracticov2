@@ -32,6 +32,8 @@ export class ProductsComponent implements OnInit {
 
   getProducts() {
     this.spinner.show();
+    this.products = [];
+    this.listedProducts = this.products;
     this.productsService.getProducts().subscribe(response => {
       this.products = response.map((res: ShowProduct) => {
         return {
@@ -77,6 +79,9 @@ export class ProductsComponent implements OnInit {
       this.hideContext(this.openContext);
     }
     console.log('se elminar el elemento :' + JSON.stringify(element));
+    this.productsService.deleteProduct(element.id).subscribe(res=> {
+      console.log(res);
+    }).add(() => this.getProducts());
   }
 
   checkElement(e: MouseEvent) {
