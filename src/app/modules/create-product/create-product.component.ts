@@ -25,7 +25,6 @@ export class CreateProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.editData = this.productsService.editProduct;
-    console.log(this.editData);
     this.initForm();
   }
 
@@ -83,14 +82,11 @@ export class CreateProductComponent implements OnInit {
   }
 
   sendForm() {
-    console.log(this.productoForm);
-    console.log(this.productoForm.getRawValue());
     if (this.productoForm.valid) {
       this.spinner.show();
 
       if (this.editData) {
         this.productsService.updateProduct(this.productoForm.getRawValue()).subscribe(res => {
-          console.log(res);
           this.goToList();
         }).add(this.spinner.hide())
       } else {

@@ -16,6 +16,8 @@ interface ShowProduct extends Product {
 export class ProductsComponent implements OnInit {
   openContext?: number | null;
   products: ShowProduct[] = [];
+  listedProducts: ShowProduct[] = [];
+  searchBox: string = '';
 
   constructor(
     private productsService: ProductService,
@@ -37,7 +39,7 @@ export class ProductsComponent implements OnInit {
           showcontext: false
         }
       });
-      console.log(this.products);
+      this.listedProducts = this.products;
     }).add(() => this.spinner.hide());
   }
 
@@ -84,6 +86,21 @@ export class ProductsComponent implements OnInit {
       if (!!this.openContext || this.openContext === 0) {
         this.hideContext(this.openContext);
       }
+    }
+  }
+
+  filterProducts(filter: string) {
+    let filteredProducts;
+
+    filteredProducts = this.products.filter((x: Product) => x.name.toLowerCase().includes(filter.toLowerCase()));
+    if (filteredProducts.length === 0) {
+      filteredProducts = this.products.filter((x: Product) => x.id.toLowerCase().includes(filter.toLowerCase()));
+    }
+
+    this.listedProducts = filteredProducts;
+
+    if (filter === '') {
+      this.listedProducts = this.products;
     }
   }
 }
