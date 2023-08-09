@@ -30,7 +30,7 @@ describe("ProductService", () => {
     expect(service).toBeTruthy();
   });
 
-  test('getProducts() Debe recibir una lista...', (done) => {
+  test('getProducts() Debe recibir una lista...', (done:any) => {
     service.getProducts()
       .subscribe({
         next: data => {
@@ -48,7 +48,7 @@ describe("ProductService", () => {
       })
   });
 
-  test('verifyId() Debe recibir un boolean si existe o no el id del producto', (done) => {
+  test('verifyId() Debe recibir un boolean si existe o no el id del producto', (done:any) => {
     const id = 'trj-001';
 
     service.verifyId(id)
@@ -69,7 +69,7 @@ describe("ProductService", () => {
       })
   });
 
-  test('verifyId() Debe recibir un error si no se envia un id', (done) => {
+  test('verifyId() Debe recibir un error si no se envia un id', (done:any) => {
     const id = '';
 
     service.verifyId(id)
@@ -87,7 +87,7 @@ describe("ProductService", () => {
       })
   });
 
-  test('deleteProduct() Debe recibir un error si se envia un id que no existe', (done) => {
+  test('deleteProduct() Debe recibir un error si se envia un id que no existe', (done:any) => {
     const id = 'trj-cre2';
 
     service.deleteProduct(id)
@@ -111,7 +111,7 @@ describe("ProductService", () => {
       })
   }, 10000);
 
-  test('createProduct() Debe guardar si el objeto estabien y el id no existe', (done) => {
+  test('createProduct() Debe guardar si el objeto estabien y el id no existe', (done:any) => {
     const mockData = {
       "id": "trj-cre12", // SE DEBE CAMBIAR EL ID
       "name": "bbo simple",
