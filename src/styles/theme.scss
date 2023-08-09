@@ -1,0 +1,124 @@
+.main-content {
+  // background-color: red;
+  margin: 85px auto 0 auto;
+  max-width: 1186px;
+  width: 100%;
+}
+
+hr {
+  background-color: #b9b9ba;
+  height: 2px;
+  margin: 2px 0;
+}
+
+// forms
+form {
+  padding: 2.25rem;
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 8px;
+
+    &:has(~ :is([disabled], [readonly])) {
+      color: #c0c0c2;
+    }
+  }
+}
+
+.control-form {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  height: 74px;
+  justify-content: flex-start;
+
+  &.align-items-center {
+    align-items: center;
+  }
+
+  .error-div {
+    color: #d50707;
+    margin-top: 0.5rem;
+    font-size: 0.5rem;
+  }
+}
+
+input[type="date"],
+input[type="text"],
+input[type="password"] {
+  border: 2px solid #c8c8cb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #757578;
+
+  &:disabled {
+    background-color: #f6f6f6;
+    border: 2px solid #e8e8e9;
+    color: #b7b7b9;
+  }
+
+  &.ng-invalid.ng-touched {
+    border: 2px solid #d50707;
+  }
+}
+
+.custom-btn {
+  background-color: #fefefe;
+  border: 0;
+  border-radius: 4px;
+  color: #152559;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 20px 22px;
+  transition: all ease-in-out 300ms;
+
+  &.primary {
+    background-color: #f9de4b;
+
+    &:hover:not(:disabled) {
+      background-color: #edcc1b;
+    }
+
+    &:disabled {
+      background-color: #fff199;
+      color: #a3abbb;
+      cursor: initial;
+    }
+
+    &.input-btn {
+      border-radius: 50%;
+      height: 24px;
+      padding: 0;
+      position: absolute;
+      right: 7px;
+      top: 3px;
+      width: 24px;
+    }
+  }
+
+  &.secondary {
+    background-color: #e9ecf3;
+
+    &:hover {
+      background-color: #ced1d8;
+    }
+  }
+}
+
+// para los logos vacios
+.empty-logo-name {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+}

@@ -1,1 +1,65 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+html * {
+  box-sizing: inherit;
+  font-size: 16px;
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  background-color: #f4f6f9;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  user-select: none;
+}
+
+body a,
+body label,
+body p {
+  font-family: inherit;
+  user-select: all;
+}
+
+// global styles
+// por la simpleesa de los estilos se dejan aqui para los componentes header y footer
+// ya que hacen parte del layout completo de la app
+.main-header {
+  background-color: #fff;
+  padding: 15px 0 19px;
+  text-align: center;
+  width: 100%;
+
+  .logo {
+    height: 42px;
+    margin: 0 auto;
+  }
+}
+
+.main-footer {
+  background-color: #fff;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+  margin: 0;
+
+  p {
+    margin: 0;
+  }
+}
+
+// (100vh + header + footer) 79 + 49 = 128px 
+.main-body-content {
+  padding: 1rem 0;
+  min-height: calc(100vh - 128px);
+}
+
+
+@import "./styles/theme.scss";

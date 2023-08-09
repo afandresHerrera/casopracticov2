@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  urlApi: 'http://desarrollo-staffing.pichincha.com/ipf-msa-productosfinancieros/'
+  apiUrl: 'https://tribu-ti-staffing-desarrollo-afangwbmcrhucqfh.z01.azurefd.net/ipf-msa-productosfinancieros/',
+  authorId: '1'
 };

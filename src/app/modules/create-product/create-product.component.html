@@ -1,0 +1,89 @@
+<main class="main-content">
+    <div class="form-container">
+        <h1 class="form-title">
+            Formulario de Registro
+        </h1>
+        <hr>
+        <form [formGroup]="productoForm">
+            <div class="control-form">
+                <label for="id">ID: </label>
+                <input type="text" formControlName="id" name="id" (focusout)="verifyId()">
+                <div class="error-div"
+                    *ngIf="productoForm.get('id')?.touched && productoForm.get('id')?.hasError('required')">
+                    ID no válido.
+                </div>
+                <div class="error-div"
+                    *ngIf="productoForm.get('id')?.touched && productoForm.get('id')?.hasError('repeated')">
+                    ID no válido (este ID ya se encuentra registrado).
+                </div>
+                <div class="error-div"
+                    *ngIf="productoForm.get('id')?.touched && productoForm.get('id')?.hasError('minlength') || productoForm.get('id')?.touched &&  productoForm.get('id')?.hasError('maxlength')">
+                    Este campo debe tener entre 3 y 10 caracteres
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="name">Nombre: </label>
+                <input type="text" formControlName="name" name="name">
+                <div class="error-div"
+                    *ngIf="productoForm.get('name')?.touched && productoForm.get('name')?.hasError('required')">
+                    Este campo es requerido.
+                </div>
+                <div class="error-div"
+                    *ngIf="productoForm.get('name')?.touched && productoForm.get('name')?.hasError('minlength') || productoForm.get('name')?.touched &&  productoForm.get('name')?.hasError('maxlength')">
+                    Este campo debe tener entre 3 y 10 caracteres
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="description">Descripción: </label>
+                <input type="text" formControlName="description" name="description">
+                <div class="error-div"
+                    *ngIf="productoForm.get('description')?.touched && productoForm.get('description')?.hasError('required')">
+                    Este campo es requerido.
+                </div>
+                <div class="error-div"
+                    *ngIf="productoForm.get('description')?.touched && productoForm.get('description')?.hasError('minlength') || productoForm.get('description')?.touched && productoForm.get('description')?.hasError('maxlength')">
+                    Este campo debe tener entre 10 y 0 caracteres
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="logo">Logo: </label>
+                <input type="text" formControlName="logo" name="logo">
+                <div class="error-div"
+                    *ngIf="productoForm.get('logo')?.touched && productoForm.get('logo')?.hasError('required')">
+                    Este campo es requerido.
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="date_release">Fecha Liberación: </label>
+                <input type="date" formControlName="date_release" name="date_release" (change)="setDate()"
+                    [min]="minDate">
+                <div class="error-div"
+                    *ngIf="productoForm.get('date_release')?.touched && productoForm.get('date_release')?.hasError('required')">
+                    Este campo es requerido.
+                </div>
+            </div>
+            <div class="control-form">
+                <label for="date_revision">Fecha Revisión: </label>
+                <input type="date" formControlName="date_revision" name="date_revision">
+                <div class="error-div"
+                    *ngIf="productoForm.get('date_revision')?.touched && productoForm.get('date_revision')?.hasError('required')">
+                    Este campo es requerido.
+                </div>
+            </div>
+            <div class="control-form align-items-center" *ngIf="!editData">
+                <input class="custom-btn secondary" type="reset" value="Reiniciar" (click)="resetForm($event)">
+            </div>
+            <div class="control-form align-items-center" *ngIf="!!editData">
+                <input class="custom-btn secondary" type="reset" value="Cancelar" (click)="goToList()">
+            </div>
+            <div class="control-form align-items-center">
+                <input class="custom-btn primary" type="submit" value="Enviar datos" (click)="sendForm()"
+                    [disabled]="productoForm.invalid">
+            </div>
+
+            <!-- <span (click)="checkForm()">
+                {{ productoForm.invalid }}
+            </span> -->
+        </form>
+    </div>
+</main>

@@ -1,1 +1,58 @@
-<p>products works!</p>
+<main class="main-content">
+    <div class="top-table">
+        <div class="input-container">
+            <input type="text" #searchbox placeholder="Search..." [(ngModel)]="searchBox"
+                (ngModelChange)="filterProducts($event)" />
+            <button class="custom-btn primary input-btn" (click)="searchbox.value = '';filterProducts('')" *ngIf="searchbox.value !== ''">
+                x
+            </button>
+        </div>
+        <b class="custom-btn primary" routerLink="/create-product">
+            Agregar
+        </b>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Nombre del producto</th>
+                    <th>Descripción</th>
+                    <th>Fecha de liberación</th>
+                    <th>Fecha de reestructuración</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of listedProducts; let i = index">
+                    <td>
+                        <div class="product-logo">
+                            <img [src]="product.logo" [alt]="product.name" noImage />
+                        </div>
+                    </td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>{{ product.date_release | date: 'dd/MM/yyyy' }}</td>
+                    <td>{{ product.date_revision | date: 'dd/MM/yyyy' }}</td>
+                    <td class="context-menu-container">
+                        <button class="circle-button" (click)="showContext(i)">
+                            <img src="assets/images/three_dots_vertical.svg">
+                        </button>
+                        <div class="context-menu" *ngIf="product.showcontext">
+                            <ul (mouseout)="checkElement($event)">
+                                <li (click)="editProduct(product)">Editar</li>
+                                <li (click)="deleteProduct(product)">Eliminar</li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <footer class="table-info">
+            <p class="resuts" *ngIf="products.length > 0">
+                {{ products.length }} {{ products.length > 1 ? 'Resultados' : 'Resultado' }}
+            </p>
+        </footer>
+    </div>
+</main>
