@@ -79,7 +79,8 @@
 }
 
 .context-menu {
-  background-color: #f4f6f9;
+  background-color: #eeeeee;
+  border-radius: 4px;
   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.05);
   // display: none;
   padding: 0.25rem 0;
@@ -98,9 +99,9 @@
     padding: 0;
 
     li {
+      cursor: pointer;
       font-size: 1rem;
       padding: 0.5rem 0.25rem 0.25rem 1rem;
-      cursor: pointer;
       transition: all ease-in-out 100ms;
 
       &:hover {

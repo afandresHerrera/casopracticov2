@@ -7,7 +7,7 @@ import { Spinkit } from 'ng-http-loader';
   <router-outlet></router-outlet>
 
   <!-- Spinner de procesamiento -->
-  <ng-http-loader [backgroundColor]="'#0370d1'" [spinner]="spinkit.skThreeBounce"></ng-http-loader>
+  <ng-http-loader [backgroundColor]="'#f9de4b'" [spinner]="spinkit.skDoubleBounce"></ng-http-loader>
   `
 })
 export class AppComponent {

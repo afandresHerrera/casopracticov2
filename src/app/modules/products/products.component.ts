@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { SpinnerVisibilityService } from 'ng-http-loader';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -16,7 +17,8 @@ export class ProductsComponent implements OnInit {
   products: ShowProduct[] = [];
 
   constructor(
-    private productsService: ProductService
+    private productsService: ProductService,
+    private spinner: SpinnerVisibilityService
   ) { }
 
   ngOnInit(): void {
@@ -24,6 +26,7 @@ export class ProductsComponent implements OnInit {
   }
 
   getProducts() {
+    this.spinner.show();
     this.productsService.getProducts().subscribe(response => {
       this.products = response.map((res: ShowProduct) => {
         return {
@@ -32,7 +35,7 @@ export class ProductsComponent implements OnInit {
         }
       });
       console.log(this.products);
-    });
+    }).add(() => this.spinner.hide());
   }
 
   showContext(idx: number) {
@@ -69,7 +72,13 @@ export class ProductsComponent implements OnInit {
     console.log('se elminar el elemento :' + JSON.stringify(element));
   }
 
-  test() {
-    console.log("mouseout!");
+  checkElement(e: MouseEvent) {
+    const element = e.relatedTarget as unknown as Element;
+
+    if (element?.parentElement?.tagName !== 'UL') {
+      if (!!this.openContext || this.openContext === 0) {
+        this.hideContext(this.openContext);
+      }
+    }
   }
 }
